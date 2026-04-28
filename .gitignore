@@ -1,0 +1,8 @@
+/docker/client/node_modules
+/docker/server/node_modules
+
+
+/docker/client/package-lock.*
+/docker/server/package-lock.*
+
+
