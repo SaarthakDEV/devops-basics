@@ -1,0 +1,9 @@
+FROM postgres:18
+
+ENV POSTGRES_USER=user
+ENV POSTGRES_PASSWORD=tiger123
+ENV POSTGRES_DB=demo-db
+
+EXPOSE 5432
+
+COPY init.sql /docker-entrypoint-initdb.d/

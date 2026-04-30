@@ -1,5 +1,6 @@
 const express = require('express');
 const cors = require('cors');
+const fs = require("fs");
 
 const app = express();
 const PORT = 8000;
@@ -61,6 +62,14 @@ app.delete('/api/items/:id', (req, res) => {
   const deletedItem = items.splice(index, 1);
   res.json(deletedItem[0]);
 });
+
+
+app.post('/', async (req,res) => {
+  const { text } = req.body;
+  const file = fs.writeFileSync("data/notes.txt", text, { encoding: "utf-8"});
+
+  return res.sendStatus(200)
+})
 
 // Start server
 app.listen(PORT, () => {
